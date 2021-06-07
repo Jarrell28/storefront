@@ -1,0 +1,23 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.category-links {
+    margin: 0 10px !important;
+}
+
+.products {
+    display: flex;
+    flex-wrap: wrap;
+
+    div {
+        max-width: 300px;
+        margin: 15px;
+    }
+
+    .MuiCardMedia-root {
+        height: 150px;
+        background-size: contain;
+    }
+}
