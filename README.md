@@ -8,7 +8,7 @@ An online shopping portal for a fictional store
 
 ### Links and Resources
 
-- [Pull Request](https://github.com/Jarrell28/todo/pull/1)
+- [Pull Request](https://github.com/Jarrell28/storefront/pull/1)
 - [Deployed Link](https://sleepy-benz-76cc26.netlify.app/)
 
 ### Setup
