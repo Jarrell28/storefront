@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 
 import { connect } from 'react-redux';
-import { getProducts } from '../store/products';
+import { addToCart } from '../store/cart';
 
 import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';
@@ -12,7 +12,7 @@ import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 
 const Products = (props) => {
-    const [products, setProducts] = useState(props.products.products);
+    const [products, setProducts] = useState(props.products.products.filter(product => product.inventory > 0));
 
     useEffect(() => {
         setProducts(props.products.products);
@@ -52,8 +52,10 @@ const Products = (props) => {
                                 </CardActionArea>
                                 <CardActions>
                                     <Button size="small" color="primary">
-                                        View Product
-        </Button>
+                                        View Product</Button>
+
+                                    <Button size="small" color="primary" onClick={() => props.addToCart(product)}>
+                                        Add To Cart</Button>
                                 </CardActions>
                             </Card>
                         )
@@ -71,6 +73,6 @@ const mapStateToProps = state => ({
     activeCategory: state.categories.activeCategory
 })
 
-const mapDispatchToProps = { getProducts }
+const mapDispatchToProps = { addToCart }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Products);

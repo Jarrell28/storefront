@@ -30,10 +30,21 @@ export default (state = initialState, action) => {
 
         case 'SELECT CATEGORY':
             if (payload) {
-                return { products: [...initialState.products.filter(product => product.category === payload)] }
+                return { products: [...initialState.products.filter(product => product.category === payload && product.inventory > 0)] }
             }
 
-            return { products: [...initialState.products] };
+            return { products: [...initialState.products.filter(product => product.inventory > 0)] };
+
+        case 'ADD TO CART':
+            return {
+                products: [...state.products.map(product => {
+                    if (product.product === payload.product) {
+                        return { ...product, inventory: product.inventory - 1 }
+                    } else {
+                        return product
+                    }
+                })]
+            }
 
         default:
             return state;
@@ -51,5 +62,12 @@ export const getProductsByCategory = (category) => {
     return {
         type: 'SELECT CATEGORY',
         payload: category
+    }
+}
+
+export const reduceQuantity = (product) => {
+    return {
+        type: 'ADD TO CART',
+        payload: product
     }
 }
