@@ -1,4 +1,4 @@
-# LAB - Class 37
+# LAB - Class 38
 
 ## Storefront
 
@@ -8,7 +8,7 @@ An online shopping portal for a fictional store
 
 ### Links and Resources
 
-- [Pull Request](https://github.com/Jarrell28/storefront/pull/2)
+- [Pull Request](https://github.com/Jarrell28/storefront/pull/3)
 - [Deployed Link](https://60beaf153c34fe5ebaa3a29b--eager-mayer-021b05.netlify.app/)
 
 ### Setup
@@ -30,6 +30,6 @@ Run ``` npm i ``` to install the following dependencies:
 
 #### UML / Application Wiring Diagram
 
-![image](https://user-images.githubusercontent.com/33704616/121253101-54d2f000-c86e-11eb-98ca-7c7d9f308622.png)
+![image](https://user-images.githubusercontent.com/33704616/121434493-0a6f7300-c943-11eb-8a8d-8612cef06bef.png)
 
 
