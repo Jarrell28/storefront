@@ -1,9 +1,16 @@
+const axios = require('axios');
+
+// let initialState = {
+//     categories: [
+//         { name: 'electronics', displayName: 'Electronics', description: 'Collection of Electronics' },
+//         { name: 'books', displayName: 'Books', description: 'Collection of Books' },
+//         { name: 'clothes', displayName: 'Clothes', description: 'Collection of Clothes' }
+//     ],
+//     activeCategory: ""
+// }
+
 let initialState = {
-    categories: [
-        { name: 'electronics', displayName: 'Electronics', description: 'Collection of Electronics' },
-        { name: 'books', displayName: 'Books', description: 'Collection of Books' },
-        { name: 'clothes', displayName: 'Clothes', description: 'Collection of Clothes' }
-    ],
+    categories: [],
     activeCategory: ""
 }
 
@@ -16,13 +23,13 @@ export default (state = initialState, action) => {
             return { categories: [...state.categories], activeCategory }
 
         case 'GET CATEGORIES':
-            return state;
+            return { categories: payload, activeCategory: state.activeCategory };
 
         default:
             return state;
     }
 }
-
+let api = 'https://storefront-api-jarrell.herokuapp.com';
 
 export const selectCategory = (category) => {
     return {
@@ -31,8 +38,16 @@ export const selectCategory = (category) => {
     }
 }
 
-export const getCategories = () => {
+export const getCategories = (data) => {
     return {
-        type: 'GET CATEGORIES'
+        type: 'GET CATEGORIES',
+        payload: data
     }
+}
+
+export const fetchCategories = () => dispatch => {
+    return axios.get(`${api}/categories`)
+        .then(response => {
+            dispatch(getCategories(response.data))
+        })
 }

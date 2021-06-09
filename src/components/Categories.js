@@ -1,11 +1,15 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Link from '@material-ui/core/Link';
 import Typography from '@material-ui/core/Typography';
 
 import { connect } from 'react-redux';
-import { getCategories, selectCategory } from '../store/categories';
+import { fetchCategories, selectCategory } from '../store/categories';
 
 const Categories = (props) => {
+
+    useEffect(() => {
+        props.fetchCategories();
+    }, [])
 
     return (
         <>
@@ -28,6 +32,6 @@ const mapStateToProps = state => ({
     categories: state.categories
 })
 
-const mapDispatchToProps = { getCategories, selectCategory }
+const mapDispatchToProps = { fetchCategories, selectCategory }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Categories);

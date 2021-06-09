@@ -1,6 +1,7 @@
 import React from 'react';
 
 import { connect } from 'react-redux';
+import { removeFromCartAjax } from '../store/cart';
 
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
@@ -26,7 +27,7 @@ const Cart = props => {
                         </Typography>
                     } />
                 </ListItem>
-                {props.cart.map(item => {
+                {props.cart.map((item, idx) => {
                     return (
                         <ListItem button>
                             <ListItemAvatar>
@@ -45,6 +46,8 @@ const Cart = props => {
                                     </Typography>
                                 </>
                             } />
+
+                            <ListItemText primary={"Delete"} style={{ color: "red", marginLeft: "25px" }} onClick={() => props.removeFromCartAjax(item, idx)} />
                         </ListItem>
                     )
                 })}
@@ -58,5 +61,7 @@ const mapStateToProps = state => ({
     cart: state.cart
 })
 
-export default connect(mapStateToProps)(Cart);
+const mapDispatchToProps = { removeFromCartAjax }
+
+export default connect(mapStateToProps, mapDispatchToProps)(Cart);
 
