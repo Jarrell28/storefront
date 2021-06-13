@@ -15,7 +15,10 @@ export default (state = initialState, action) => {
                 if (idx !== payload.idx) {
                     return item;
                 }
-            })]
+            })];
+
+        case 'RESET CART':
+            return initialState;
 
         default:
             return state;
@@ -53,5 +56,11 @@ export const removeFromCart = (product, idx) => {
     return {
         type: 'REMOVE FROM CART',
         payload: { product, idx }
+    }
+}
+
+export const resetCart = () => {
+    return {
+        type: 'RESET CART'
     }
 }

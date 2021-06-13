@@ -27,7 +27,6 @@ const Header = (props) => {
             <Toolbar style={{ justifyContent: 'space-between' }}>
                 <Typography variant="h6">
                     <Link to="/">Storefront</Link>
-                    <Link to="/cart">cart</Link>
                 </Typography>
                 <Button color="inherit" onClick={handleClick} className="cart">Cart <span>({props.cart.length})</span></Button>
             </Toolbar>

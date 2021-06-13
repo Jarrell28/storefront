@@ -26,3 +26,11 @@ a, a:visited {
         background-size: contain;
     }
 }
+
+.avatar {
+
+    img {
+        object-fit: contain;
+
+    }
+}

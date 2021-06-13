@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { addToCartAjax } from '../store/cart';
 
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
@@ -46,6 +48,12 @@ const ProductDetails = props => {
             .then(response => setProduct(response.data));
     }, [])
 
+    const addToCart = async (product) => {
+        await props.addToCartAjax(product);
+        axios.get(`${API}/products/${id}`)
+            .then(response => setProduct(response.data))
+    }
+
     return (
         <>
             {Object.keys(product).length ?
@@ -73,8 +81,8 @@ const ProductDetails = props => {
                                 </CardContent>
                             </CardActionArea>
                             <CardActions>
-                                <Button size="small" color="primary" variant="contained" className={classes.button}>
-                                    Buy
+                                <Button size="small" color="primary" variant="contained" className={classes.button} onClick={() => addToCart(product)} disabled={product.inventory > 0 ? false : true}>
+                                    Add To Cart
                                 </Button>
                             </CardActions>
                         </Card>
@@ -86,6 +94,9 @@ const ProductDetails = props => {
         </>
     )
 }
+const mapStateToProps = state => { };
 
-export default ProductDetails;
+const mapDispatchToProps = { addToCartAjax };
+
+export default connect(mapStateToProps, mapDispatchToProps)(ProductDetails);
 
