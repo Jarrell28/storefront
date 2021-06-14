@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 import Cart from './Cart';
 import { AppBar, Toolbar, Typography, Button, Popover } from '@material-ui/core';
@@ -25,7 +26,7 @@ const Header = (props) => {
         <AppBar position="static">
             <Toolbar style={{ justifyContent: 'space-between' }}>
                 <Typography variant="h6">
-                    Storefront
+                    <Link to="/">Storefront</Link>
                 </Typography>
                 <Button color="inherit" onClick={handleClick} className="cart">Cart <span>({props.cart.length})</span></Button>
             </Toolbar>

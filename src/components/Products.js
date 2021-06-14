@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom'
 
 import { connect } from 'react-redux';
 import { addToCartAjax } from '../store/cart';
@@ -66,7 +67,7 @@ const Products = (props) => {
                                     </CardActionArea>
                                     <CardActions>
                                         <Button size="small" color="primary">
-                                            View Product</Button>
+                                            <Link to={`/product/${product._id}`} >View Product</Link></Button>
 
                                         <Button size="small" color="primary" onClick={() => props.addToCartAjax(product)}>
                                             Add To Cart</Button>

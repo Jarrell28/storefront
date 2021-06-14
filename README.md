@@ -1,4 +1,4 @@
-# LAB - Class 38
+# LAB - Class 39
 
 ## Storefront
 
@@ -30,6 +30,6 @@ Run ``` npm i ``` to install the following dependencies:
 
 #### UML / Application Wiring Diagram
 
-![image](https://user-images.githubusercontent.com/33704616/121434493-0a6f7300-c943-11eb-8a8d-8612cef06bef.png)
+![image](https://user-images.githubusercontent.com/33704616/121919206-65ff7f00-ccfc-11eb-9858-b97602fe7603.png)
 
 

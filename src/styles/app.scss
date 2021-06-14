@@ -3,6 +3,11 @@
     padding: 0;
 }
 
+a, a:visited {
+    color: inherit;
+    text-decoration: none;
+}
+
 .category-links {
     margin: 0 10px !important;
 }
@@ -19,5 +24,13 @@
     .MuiCardMedia-root {
         height: 150px;
         background-size: contain;
+    }
+}
+
+.avatar {
+
+    img {
+        object-fit: contain;
+
     }
 }
