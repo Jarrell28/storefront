@@ -8,7 +8,7 @@ An online shopping portal for a fictional store
 
 ### Links and Resources
 
-- [Pull Request](https://github.com/Jarrell28/storefront/pull/3)
+- [Pull Request](https://github.com/Jarrell28/storefront/pull/4)
 - [Deployed Link](https://60beaf153c34fe5ebaa3a29b--eager-mayer-021b05.netlify.app/)
 
 ### Setup
